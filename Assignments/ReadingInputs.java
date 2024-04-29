@@ -15,7 +15,7 @@ public class ReadingInputs {
         System.out.print("Enter field of interest:");
         String fieldOfInterest = sc.next();
 
-        System.out.print(name + " "+rollNumber+" "+fieldOfInterest);
+        System.out.print("name:"+name+"\nroll number:"+rollNumber+"\nfield of interest:"+fieldOfInterest);
 
         String x = sc.next();
         String y = sc.next();
@@ -25,16 +25,25 @@ public class ReadingInputs {
         int mark2 = sc.nextInt();
         int mark3 = sc.nextInt();
         int totalMarks = mark1 + mark2 + mark3;
-        int percentage = (totalMarks / 300)*100;
+        int percentage = (totalMarks / 3);
         System.out.println("Total marks:"+totalMarks);
         System.out.println("Percentage:"+percentage+"%");
 
         int testCases = sc.nextInt();
-        int num1 = sc.nextInt();
-        int num2 = sc.nextInt();
-        int num3 = sc.nextInt();
+        while (testCases > 0) {
+            int t1 = sc.nextInt();
+            int t2 = sc.nextInt();
+            System.out.println(t1+t2);
+            testCases--;
+        }
 
-
+        int numberOfLines = sc.nextInt();
+        while (numberOfLines > 0) {
+            String s1 = sc.next();
+            String s2 = sc.next();
+            System.out.println(s1+s2);
+            numberOfLines--;
+        }
 
     }
 }
