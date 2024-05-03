@@ -9,8 +9,8 @@ public class Rectangular {
         int rows = sc.nextInt();
         System.out.print("Enter number of columns : ");
         int columns = sc.nextInt();
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
+        outer:for (int i = 0; i < rows; i++) {
+            inner:for (int j = 0; j < columns; j++) {
                 System.out.print("* ");
             }
             System.out.println();
