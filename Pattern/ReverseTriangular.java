@@ -8,7 +8,7 @@ public class ReverseTriangular {
         System.out.print("Enter number of rows : ");
         int rows = sc.nextInt();
         outer:for (int i = 0; i < rows; i++) {
-            inner:for (int j = rows; j > i; j--) {
+            inner:for (int j = 0; j < rows-i; j++) {
                 System.out.print("*");
             }
             System.out.println();
