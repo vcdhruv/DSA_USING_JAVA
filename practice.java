@@ -1,14 +1,17 @@
 import java.util.Scanner;
 
 public class practice {
-    public static void main(String[] args) {
-        int n = 1010;
-        int answer = 0 , pw = 1 , original_number = n;
-        while (n != 0) {
-            answer = answer + (n % 10) * pw;
-            pw *= 2;
-            n = n / 10;
+    public static void main(String[] args){
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter the string: ");
+        String s = scn.nextLine();
+        System.out.print(middle(s));
         }
-        System.out.println("Decimal Number Of " + original_number + " is : " + answer);
+    public static String middle(String s){
+        if(s.length() % 2 == 0){
+            return s.substring(s.length()/2-1, s.length()/2 + 1);
+        }else{
+            return s.charAt(s.length()/2)+"";
+        }
     }
 }
