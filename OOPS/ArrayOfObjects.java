@@ -1,6 +1,8 @@
+package OOPS;
+
 import java.util.Scanner;
 
-public class practice {
+public class ArrayOfObjects {
     public static class Employee {
         String name;
         int age;
