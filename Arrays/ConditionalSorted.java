@@ -23,6 +23,13 @@ public class ConditionalSorted {
         int index = 0;
         
         for (int i : arr) {
+            if (i >=0) {
+                arr_2[index] = i;
+                index++;
+            }
+        }
+
+        for (int i : arr) {
             if (i < 0) {
                 arr_2[index] = i;
                 index++;
