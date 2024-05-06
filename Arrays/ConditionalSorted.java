@@ -21,12 +21,7 @@ public class ConditionalSorted {
 
         int[] arr_2 = new int[arr.length];
         int index = 0;
-        for (int i : arr) {
-            if (i >=0) {
-                arr_2[index] = i;
-                index++;
-            }
-        }
+        
         for (int i : arr) {
             if (i < 0) {
                 arr_2[index] = i;
