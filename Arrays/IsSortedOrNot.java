@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class IsSortedOrNot {
     public static boolean IsSortedOrNot(int[] arr){
         for (int i = 1; i < arr.length - 1; i++) {
-            if (arr[i-1] >= arr[i]) {
+            if (arr[i-1] > arr[i]) {
+                System.out.println(arr[i-1]+">"+arr[i] + " = "+(arr[i-1] > arr[i]));
                 return false;
             }
         }
