@@ -1,28 +1,20 @@
 import java.util.Scanner;
 
 public class practice {
-    public static class Employee {
-        String name;
-        int age;
-        double salary;
-    }
+    
     public static void main(String[] args){
-        Employee[] e = new Employee[2];
-        Scanner sc = new Scanner(System.in);
-        Input:for (int i = 0; i < 2; i++) {
-            e[i] = new Employee(); // Instantiate each Employee object
-            System.out.println("Enter name of employee " + i + ":");
-            e[i].name = sc.nextLine();
-            System.out.println("Enter age of employee " + i + ":");
-            e[i].age = sc.nextInt();
-            System.out.println("Enter salary of employee " + i + ":");
-            e[i].salary = sc.nextDouble();
-            sc.nextLine(); // consume newline character left in buffer after nextDouble()
+        int n = 12345;
+        int k = -1;
+        int t = n;
+        int numOfDigits = 0;
+        while (n != 0) {
+            n /=10;
+            numOfDigits++;
         }
-        Print:for (int i = 0; i < e.length; i++) {
-            System.out.println("Name of employee " + i + " is : "+e[i].name);
-            System.out.println("Age of employee " + i + " is : "+e[i].age);
-            System.out.println("Salary of employee " + i + " is : "+e[i].salary);
-        }
+        if(k<1) k = k + numOfDigits;
+        k = k % numOfDigits;
+        n = t;
+        int ans = (int)(n % Math.pow(10, k)) * (int)(Math.pow(10, numOfDigits-k)) + (int)(n / Math.pow(10, k));
+        System.out.println(ans);
     }
 }
