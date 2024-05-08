@@ -3,18 +3,23 @@ import java.util.Scanner;
 public class practice {
     
     public static void main(String[] args){
-        int n = 12345;
-        int k = -1;
-        int t = n;
-        int numOfDigits = 0;
-        while (n != 0) {
-            n /=10;
-            numOfDigits++;
+        int[] buildingSize = {1,5,3,4,2};
+        int maxBuildingSize = buildingSize[0];
+        for (int i : buildingSize) {
+            if (i > maxBuildingSize) {
+                maxBuildingSize = i;
+            }
         }
-        if(k<1) k = k + numOfDigits;
-        k = k % numOfDigits;
-        n = t;
-        int ans = (int)(n % Math.pow(10, k)) * (int)(Math.pow(10, numOfDigits-k)) + (int)(n / Math.pow(10, k));
-        System.out.println(ans);
+        for (int building = maxBuildingSize; building >= 1; building--) {
+            for (int floor : buildingSize) {
+                // System.out.print(building+","+floor+" ");
+                if (building > floor) {
+                    System.out.print("\t");
+                }else{
+                    System.out.print("*\t");
+                }
+            }
+            System.out.println();
+        }
     }
 }

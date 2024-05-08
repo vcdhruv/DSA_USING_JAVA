@@ -13,14 +13,14 @@ public class BarChart {
         return max;
     }
     public static void generateBarChart(int[] arr){
-        int maxBar = getMax(arr);
-        building:for (int i = maxBar; i >= 1 ; i--) {
-            floors:for (int j : arr) { // if flooar <= building add more floors to buildings concept
+        int maxBuildingSize = getMax(arr);
+        building:for (int building = maxBuildingSize; building >= 1 ; building--) {
+            floors:for (int floor : arr) { // if flooar <= building add more floors to buildings concept
                 // System.out.print(i+","+j+" ");
-                if (i <= j) {
-                    System.out.print("*\t");
-                }else{
+                if (building > floor) {
                     System.out.print("\t");
+                }else{
+                    System.out.print("*\t");
                 }
                 
             }
@@ -31,11 +31,12 @@ public class BarChart {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter size of bar chart : ");
         int size = sc.nextInt();
-        int[] arr = new int[size];
-        for (int i = 0; i < arr.length; i++) {
+        int[] buildingSize = new int[size];
+        for (int i = 0; i < buildingSize.length; i++) {
             System.out.print("Enter size " + (i+1) + " : ");
-            arr[i] = sc.nextInt();
+            buildingSize[i] = sc.nextInt();
         }
-        generateBarChart(arr);
+        System.out.println("Your bar chart is ready...");
+        generateBarChart(buildingSize);
     }
 }
