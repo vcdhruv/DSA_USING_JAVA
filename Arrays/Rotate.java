@@ -45,10 +45,10 @@ public class Rotate {
         }
         System.out.print("How many times you want to rotate : ");
         int k = sc.nextInt();
+        k = k % arr.length;
         if (k < 0) {
             k = k + arr.length;
         }
-        k = k % arr.length;
         printArray(arr);
         rotate(arr, k);
         printArray(arr);
