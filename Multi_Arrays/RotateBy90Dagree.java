@@ -2,7 +2,7 @@ package Multi_Arrays;
 
 import java.util.Scanner;
 
-public class Transpose {
+public class RotateBy90Dagree {
     public static void printArray(int[][] arr){
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
@@ -42,6 +42,26 @@ public class Transpose {
             printArray(matrix);
         }
     }
+    public static void reverse(int[] arr){
+        int i = 0 , j = arr.length - 1;
+        while (i <= j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+    }
+    public static void reverseEachRow(int[][] arr){
+        for (int i = 0; i < arr.length; i++) {
+            int[] innerArray = arr[i];
+            reverse(innerArray);
+        }
+    }
+    public static void rotateBy90Degree(int[][] matrix ,int r ,int c){
+        createTransposeMatrix(matrix, r, c);
+        reverseEachRow(matrix);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of rows of matrix 1 : ");
@@ -50,7 +70,7 @@ public class Transpose {
         int c1 = sc.nextInt();
         System.out.println("Enter "+r1*c1+" elements : ");
         int[][] arr_1 = createMultiArray(r1,c1);
+        rotateBy90Degree(arr_1, r1, c1);
         printArray(arr_1);
-        createTransposeMatrix(arr_1,r1,c1);
     }
 }
