@@ -30,12 +30,28 @@ public class Spiral {
         int c1 = sc.nextInt();
         System.out.println("Enter "+r1*c1+" elements : ");
         int[][] arr_1 = createMultiArray(r1,c1);
-        int topRow = 0 ,bottomRow = r1 - 1 ,leftCol = 0 , rightCol = c1 - 1 ,count = r1*c1;
-        while (count >= 0) {
-            while (leftCol <= rightCol) {
-                System.out.print(arr_1[bottomRow][leftCol]);
-                leftCol++;
+        int topRow = 0 ,bottomRow = r1 - 1 ,leftCol = 0 , rightCol = c1 - 1 ,count = 0;
+        while (count < r1*c1) {
+            for (int i = leftCol; i <= rightCol && count < r1*c1; i++) {
+                System.out.print(arr_1[topRow][i] + " ");
+                count++;
             }
+            topRow++;
+            for (int i = topRow; i <= bottomRow && count < r1*c1; i++) {
+                System.out.print(arr_1[i][rightCol] + " ");
+                count++;
+            }
+            rightCol--;
+            for (int i = rightCol; i >= leftCol && count < r1*c1; i--) {
+                System.out.print(arr_1[bottomRow][i] + " ");
+                count++;
+            }
+            bottomRow--;
+            for (int i = bottomRow; i >= topRow && count < r1*c1; i--) {
+                System.out.print(arr_1[i][leftCol] + " ");
+                count++;
+            }
+            leftCol++;
         }
     }
 }
