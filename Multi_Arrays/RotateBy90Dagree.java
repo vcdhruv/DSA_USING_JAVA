@@ -62,6 +62,23 @@ public class RotateBy90Dagree {
         createTransposeMatrix(matrix, r, c);
         reverseEachRow(matrix);
     }
+
+    public static void swapRows(int[][] arr ,int start ,int end){
+        int[] temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+    }
+
+    public static void rotateBy90DegreeAntiClockWise(int[][] matrix ,int r ,int c){
+        createTransposeMatrix(matrix, r, c);
+        int j = c - 1;
+        for (int i = 0; i < matrix.length; i++) {
+            if (i <= j) {
+                swapRows(matrix, i, j);
+                j--;
+            }
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of rows of matrix 1 : ");
@@ -70,7 +87,9 @@ public class RotateBy90Dagree {
         int c1 = sc.nextInt();
         System.out.println("Enter "+r1*c1+" elements : ");
         int[][] arr_1 = createMultiArray(r1,c1);
-        rotateBy90Degree(arr_1, r1, c1);
+        // rotateBy90Degree(arr_1, r1, c1);
+        printArray(arr_1);
+        rotateBy90DegreeAntiClockWise(arr_1, r1, c1);
         printArray(arr_1);
     }
 }

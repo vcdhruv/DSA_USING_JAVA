@@ -1,38 +1,30 @@
 import java.util.Scanner;
 
 public class practice {
-    public static void printArray(int[] arr){
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-    }
-    public static void swap(int[] nums,int i,int j){
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
-    public static void reverse(int[] nums,int start , int end){
-        int i = start , j = end;
-        while(i < j){
-            swap(nums,i,j);
-            i++;
-            j--;
-        }
-    }
-    public static void rotate(int[] nums, int k) {
-        k = k % nums.length;
-        if(k < 0) k = k + nums.length;
-        
-        reverse(nums,0,nums.length-k-1);
-        reverse(nums,nums.length-k,nums.length-1);
-        reverse(nums,0,nums.length-1);
-    }
+    
     public static void main(String[] args){
-        int[] nums = {1,2,3,4,5,6,7};
-        int k = -100;
-        k=k%nums.length;
-        rotate(nums,k);
-        printArray(nums);
+        int n1 = 2 , m1 = 3;
+        int[][] nums1 = {{2,4,1},{3,5,6}};
+        int n2 = 3 , m2 = 2;
+        int[][] nums2 = {{1,2},{3,4},{5,7}};
+        if (m1 != n2) {
+            System.out.println("Invalid Input");
+        }else{
+            int[][] ans = new int[n1][m2];
+            for (int i = 0; i < n1; i++) {
+                for (int j = 0; j < m2; j++) {
+                    for (int j2 = 0; j2 < m1; j2++) {
+                        ans[i][j] += nums1[i][j2]*nums2[j2][j];
+                    }
+                }
+            }
+            for (int i = 0; i < ans.length; i++) {
+                for (int j = 0; j < ans[i].length; j++) {
+                    System.out.print(ans[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
+
     }
 }
