@@ -22,6 +22,34 @@ public class Spiral {
         }
         return arr;
     }
+    public static int[][] generateNSqaureSpiralMatrix(int n){
+        int[][] answer = new int[n][n];
+        int totalElements = 1 , topRow = 0 , bottomRow = n - 1 , leftCol = 0 , rightCol = n - 1;
+        while (totalElements <= n*n) {
+            for (int i = leftCol; i <= rightCol && totalElements <= n*n; i++) {
+                answer[topRow][i] = totalElements;
+                totalElements++;
+            }
+            topRow++;
+            for (int i = topRow; i <= bottomRow && totalElements <= n*n; i++) {
+                answer[i][rightCol] = totalElements;
+                totalElements++;
+            }
+            rightCol--;
+            for (int i = rightCol; i >= leftCol && totalElements <= n*n; i--) {
+                answer[bottomRow][i] = totalElements;
+                totalElements++;
+            }
+            bottomRow--;
+            for (int i = bottomRow; i >= topRow && totalElements <= n*n; i--) {
+                answer[i][leftCol] = totalElements;
+                totalElements++;
+            }
+            leftCol++;
+        }
+        printArray(answer);
+        return answer;
+    } 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of rows of matrix 1 : ");
@@ -53,5 +81,7 @@ public class Spiral {
             }
             leftCol++;
         }
+        System.out.println();
+        int[][] m = generateNSqaureSpiralMatrix(5);
     }
 }
