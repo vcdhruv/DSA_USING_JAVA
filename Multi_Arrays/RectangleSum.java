@@ -42,6 +42,15 @@ public class RectangleSum {
             prefixSum(matrix[i]);
         }
     }
+    public static void generatePrefixSumOverColumns(int[][] matrix){
+        generatePrefixMatrix(matrix);
+        // printArray(matrix);
+        for (int i = 0; i < matrix[0].length; i++) {
+            for (int j = 1; j < matrix.length; j++) {
+                matrix[j][i] += matrix[j-1][i];
+            }
+        }
+    }
     public static int rectangleSum2(int[][] matrix,int l1,int r1,int l2,int r2){
         int sum = 0;
         generatePrefixMatrix(matrix);
@@ -53,6 +62,20 @@ public class RectangleSum {
         }
         return sum;
     }
+    public static int rectangleSum3(int[][] matrix,int l1,int r1,int l2,int r2){
+        int ans = 0 , sum = 0 , up = 0 , left = 0 , upleft = 0;
+        generatePrefixSumOverColumns(matrix);
+        printArray(matrix);
+        sum = matrix[l2][r2];
+        if(l1 >= 1)
+            up = matrix[l1-1][r2]; 
+        if(r1 >= 1)
+            left = matrix[l2][r1-1]; 
+        if(l1 >= 1 && r1 >= 1)
+            upleft = matrix[l1-1][r1-1];
+        ans = sum - left - up + upleft;
+        return ans;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of rows of matrix 1 : ");
@@ -63,9 +86,14 @@ public class RectangleSum {
         int[][] arr_1 = createMultiArray(r, c);
         System.out.println("Enter rectangle boundaries l1, r1, l2, r2");
         int l1 = sc.nextInt() , r1 = sc.nextInt() , l2 = sc.nextInt() , r2 = sc.nextInt();
+        // generatePrefixSumOverColumns(arr_1);
+        // generatePrefixMatrix(arr_1);
         // printArray(arr_1);
         System.out.println("Sum Of rectangle from ("+l1+","+r1+")"+" to "+"("+l2+","+r2+") is : "+rectangleSum1(arr_1, l1, r1, l2, r2));
         System.out.println("Sum Of rectangle from ("+l1+","+r1+")"+" to "+"("+l2+","+r2+") is : "+rectangleSum2(arr_1, l1, r1, l2, r2));
+        System.out.println("If both rectangleSum2 and rectangleum3 are called at a time then answer will not be same since rectangleSum2 will create prefix sum and it will change in placce so...");
+        System.out.println("Sum Of rectangle from ("+l1+","+r1+")"+" to "+"("+l2+","+r2+") is : "+rectangleSum3(arr_1, l1, r1, l2, r2));
+
 
     }
 }
