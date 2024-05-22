@@ -23,6 +23,17 @@ public class LinkedList {
             tail = temp;
         }
 
+        void insertAtBeginning(int val){
+            Node temp = new Node(val);
+            if(head == null){
+                head = temp;
+                tail = temp;
+            }else{
+                temp.next = head;
+                head = temp;
+            }
+        }
+
         void displayLL(){
             Node temp = head;
             while (temp != null) {
@@ -52,5 +63,10 @@ public class LinkedList {
         ll.LengthLL();
         ll.insertAtEnd(3);
         ll.displayLL();
+        ll.insertAtBeginning(0);
+        ll.displayLL();
+        System.out.println("head node : "+ll.head.data);
+        System.out.println("tail node : "+ll.tail.data);
+
     }
 }
