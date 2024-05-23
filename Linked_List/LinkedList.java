@@ -88,6 +88,7 @@ public class LinkedList {
         ll.insertAtBeginning(0);
         ll.displayLL();
         ll.insert(4, 3);
+        ll.insert(777, 0);
         ll.displayLL();
         System.out.println("head node : "+ll.head.data);
         System.out.println("tail node : "+ll.tail.data);
