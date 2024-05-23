@@ -30,6 +30,13 @@ public class DoublyLL {
         head = x;
         return head;
     }
+    public static Node insertAtEnd(Node tail , int val){
+        Node x = new Node(val);
+        tail.next = x;
+        x.prev = tail;
+        tail = x;
+        return tail;
+    }
     public static void main(String[] args) {
         Node a = new Node(0);
         Node b = new Node(1);
@@ -52,7 +59,11 @@ public class DoublyLL {
         System.out.println();
         Node head = insertAtHead(a,-1);
         a = head;
+        Node tail = insertAtEnd(e, 5);
+        a = tail;
+
         System.out.println("head : "+head.val);
+        System.out.println("tail : "+tail.val);
         display(a);
     }
 }
