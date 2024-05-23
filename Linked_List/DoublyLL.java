@@ -23,6 +23,13 @@ public class DoublyLL {
             temp = temp.prev;
         }
     }
+    public static Node insertAtHead(Node head,int val){
+        Node x = new Node(val);
+        x.next = head;
+        head.prev = x;
+        head = x;
+        return head;
+    }
     public static void main(String[] args) {
         Node a = new Node(0);
         Node b = new Node(1);
@@ -42,5 +49,10 @@ public class DoublyLL {
         System.out.println();
         System.out.print("Reverse : ");
         displayReverse(e);
+        System.out.println();
+        Node head = insertAtHead(a,-1);
+        a = head;
+        System.out.println("head : "+head.val);
+        display(a);
     }
 }
