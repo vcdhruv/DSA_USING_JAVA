@@ -58,6 +58,18 @@ public class DoublyLL {
         r.prev = x;
     }
     
+    public static void displayRecursive(Node head){
+        if(head == null) return;
+        System.out.print(head.val+" ");
+        displayRecursive(head.next);
+    }
+
+    public static void displayReverseRecursive(Node head){
+        if(head == null) return;
+        displayReverseRecursive(head.next);
+        System.out.print(head.val+" ");
+    }
+
     public static void main(String[] args) {
         Node a = new Node(0);
         Node b = new Node(1);
@@ -82,8 +94,12 @@ public class DoublyLL {
         a = head;
         insertAtEnd(head, 5);
         insert(a, 2, 0);
+        insert(a, 7, 7);
         display(a);
         System.out.println();
         System.out.println("head : "+head.val);
+        displayRecursive(a);
+        System.out.println();
+        displayReverseRecursive(a);
     }
 }
